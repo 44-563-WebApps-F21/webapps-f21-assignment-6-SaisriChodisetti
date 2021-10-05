@@ -21,6 +21,25 @@
                 alert("access denied");
             }
         }
+
+        let usingImage = 1
+        function newImage(img) {
+            switch (usingImage) {
+                case 1:
+                    document.getElementById("animals").src = "dog.jpg"
+                    usingImage++;
+                    break;
+                case 2:
+                    document.getElementById("animals").src = "horse.jpg"
+                    usingImage++;
+                    break;
+                default:
+                    usingImage = 1;
+                    document.getElementById("animals").src = "cat.jpg"
+                    break;
+            }
+        }
+
     </script>
 </head>
 
@@ -37,6 +56,10 @@
     </form>
 
     <p id="result">Attempts display here </p>
+
+    <div class="container">
+        <img src="cat.jpg" id="animals" alt="cat" style="height: 200px;" width="200px;" onclick="newImage(this)" />
+    </div>
 
 </body>
 
