@@ -23,6 +23,22 @@
 
     <p id="result">This text will be replaced </p>
 
+    <form>
+        <input type="radio" id="plus" name="operation" value="plus" onclick="processRadio()">
+        <label for="plus">+</label></br>
+
+        <input type="radio" id="minus" name="operation" value="minus" onclick="processRadio()">
+        <label for="minus">-</label></br>
+
+        <input type="radio" id="times" name="operation" value="times" onclick="processRadio()">
+        <label for="times">*</label></br>
+
+        <input type="radio" id="divide" name="operation" value="divide" onclick="processRadio()">
+        <label for="divide">/</label></br>
+    </form>
+
+    <p id="radioButtonResult">This text will be replaced </p>
+
     <script>
         function powers() {
 
@@ -39,6 +55,27 @@
                 result += r + " "
             }
             out.innerHTML = result
+        }
+
+        function processRadio() {
+
+            base = document.getElementById("base").value
+            exponent = document.getElementById("exponent").value
+
+            plus = document.getElementById("plus").checked
+            minus = document.getElementById("minus").checked
+            times = document.getElementById("times").checked
+            divide = document.getElementById("divide").checked
+            result = document.getElementById("radioButtonResult")
+
+            if (plus)
+                result.innerHTML = +base + +exponent
+            else if (minus)
+                result.innerHTML = base - exponent
+            else if (times)
+                result.innerHTML = base * exponent
+            else
+                result.innerHTML = base / exponent
         }
     </script>
 
